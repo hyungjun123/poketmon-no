@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>포켓몬 도감</title>
+    <script>
+        
+        window.onload = function () {
+          fetch("https://pokeapi.co/api/v2/pokemon")
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (json) {
+              for (const pokemon of json.results) {
+              document.getElementById("list").innerHTML +=
+              '<li><a href="libray.html?name= '+ pokemon.name +'">'+pokemon.name +"</a></li>";
+              }
+            });
+        };
+      </script>
+</head>
+<body>
+    <h1 id="title">포켓몬 도감</h1>
+
+    보고 싶은 포켓몬을 선택해주세요.
+
+    <ul id="list"></ul>
+    
+</body>
+</html>
